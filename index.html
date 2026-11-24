@@ -17,7 +17,7 @@
   --hairline: #e4e4e7;
   --pale: #f4f4f5;
   --edge: #e4e4e7;
-  --shadow: #e5e5e5;
+  --shadow: #a1a1aa;
   --hatch-line: #d4d4d8;
 }
 [data-theme="dark"] {
@@ -28,7 +28,7 @@
   --hairline: #27272a;
   --pale: #18181b;
   --edge: #27272a;
-  --shadow: #2e2e33;
+  --shadow: #52525b;
   --hatch-line: #3f3f46;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -37,6 +37,7 @@ body { background: var(--bg); color: var(--ink); font-family: "Geist", -apple-sy
 a { color: var(--ink); }
 .mono { font-family: "Geist Mono", ui-monospace, monospace; }
 .hand { font-family: "Caveat", cursive; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .col { max-width: 776px; margin: 0 auto; padding: 0 40px; border-left: 1px solid var(--edge); border-right: 1px solid var(--edge); }
 section[id] { scroll-margin-top: 72px; }
 
@@ -59,7 +60,7 @@ section[id] { scroll-margin-top: 72px; }
 .hero { padding-top: 44px; }
 .hero-mw { display: block; width: 100%; max-width: 560px; height: auto; }
 .br { stroke: #d4d4d8; stroke-width: 1; }
-.hl { stroke: #e4e4e7; stroke-width: 0.75; }
+.hl { stroke: #d4d4d8; stroke-width: 0.75; }
 .hb { fill: #ffffff; }
 [data-theme="dark"] .br { stroke: #3f3f46; }
 [data-theme="dark"] .hl { stroke: #2e2e33; }
@@ -80,7 +81,7 @@ section[id] { scroll-margin-top: 72px; }
 .avatar { width: 160px; height: 160px; border-radius: 50%; overflow: hidden; flex: none; margin-top: -132px; margin-left: -32px; position: relative; z-index: 2; background: var(--pale); border: 1px solid var(--hairline); }
 .avatar img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .hero-name { min-width: 0; padding-bottom: 6px; padding-left: 24px; border-left: 1px solid var(--hairline); }
-.hero-name h1 { font-size: 30px; line-height: 1.2; font-weight: 700; }
+.hero-name h1 { font-size: 32px; line-height: 1.2; font-weight: 500; letter-spacing: -0.02em; }
 .hero-tag { font-family: "Geist Mono", monospace; font-size: 13px; color: var(--muted); margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--hairline); min-height: 22px; }
 .hero-tag span { display: inline-block; border-radius: 4px; padding: 0 2px; margin: 0 -2px; transition: opacity 300ms ease, transform 300ms ease; }
 .hero-tag span.out { opacity: 0; transform: translateY(-6px); }
@@ -96,7 +97,7 @@ section[id] { scroll-margin-top: 72px; }
 section.block { padding: 32px 0; border-top: 1px solid var(--hairline); }
 section.block:first-of-type { border-top: none; }
 .sec-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 20px; }
-.sec-head h2 { font-size: 30px; line-height: 1.2; font-weight: 700; }
+.sec-head h2 { font-size: 30px; line-height: 1.2; font-weight: 500; letter-spacing: -0.02em; }
 .sec-head sup { font-size: 15px; color: var(--muted); font-weight: 400; }
 .copy-link { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: none; border: none; border-radius: 6px; color: var(--faint); cursor: pointer; align-self: center; }
 .copy-link:hover { color: var(--ink); background: var(--pale); }
@@ -115,15 +116,11 @@ section.block:first-of-type { border-top: none; }
 .ov-ico { width: 38px; height: 38px; border: 1px solid var(--hairline); border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; color: var(--muted); flex: none; }
 .ov-ico svg { width: 18px; height: 18px; }
 .ov-row .clock { font-family: "Geist Mono", monospace; font-size: 14px; color: var(--muted); }
-.email-pill { position: relative; display: inline-flex; align-items: center; flex: 1; max-width: 320px; min-width: 220px; height: 38px; border: 1px solid var(--hairline); border-radius: 999px; background: var(--bg); overflow: hidden; cursor: grab; user-select: none; touch-action: pan-y; }
+.email-pill { position: relative; display: inline-flex; align-items: center; flex: 1; max-width: 320px; min-width: 220px; height: 38px; border: 1px dashed var(--hairline); border-radius: 8px; background: var(--bg); overflow: hidden; cursor: grab; user-select: none; touch-action: pan-y; }
 .email-pill:active { cursor: grabbing; }
-.email-thumb { position: absolute; left: 3px; top: 3px; width: 32px; height: 32px; border-radius: 8px; background: #fff; border: 1px solid var(--hairline); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12); display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--muted); z-index: 2; }
+.email-thumb { position: absolute; left: 3px; top: 3px; width: 32px; height: 32px; border-radius: 8px; background: #fff; border: 1px solid var(--hairline); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #52525b; z-index: 2; }
 .email-hint { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--muted); }
 .email-value { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; font-family: "Geist Mono", monospace; font-size: 13px; color: var(--ink); }
-[data-theme="dark"] .email-pill { background: #ffffff; border-color: #ffffff; }
-[data-theme="dark"] .email-hint { color: #52525b; }
-[data-theme="dark"] .email-value { color: #09090b; }
-[data-theme="dark"] .email-thumb { background: #ffffff; border-color: #e4e4e7; color: #09090b; }
 
 /* 热力图 */
 .heatmap img { display: block; width: 100%; height: auto; }
@@ -139,7 +136,7 @@ section.block:first-of-type { border-top: none; }
 .about p:last-child { margin-bottom: 0; }
 
 /* 斜纹带 */
-.hatch { height: 38px; background: repeating-linear-gradient(-45deg, var(--hatch-line) 0 1px, transparent 1px 7px); }
+.hatch { height: 32px; background: repeating-linear-gradient(-45deg, var(--hatch-line) 0 1px, transparent 1px 10px); }
 
 /* Stack */
 .stack-group { display: flex; gap: 16px; align-items: flex-start; padding: 12px 0; border-top: 1px solid var(--hairline); }
@@ -541,7 +538,7 @@ section.block:first-of-type { border-top: none; }
 
     <!-- Overview -->
     <section class="block overview reveal" id="overview">
-      <div class="sec-head"><h2>Overview</h2></div>
+      <h2 class="sr-only">Overview</h2>
       <div class="ov-row">
         <span class="ov-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span>
         <span>徐州，中国</span>
@@ -567,7 +564,7 @@ section.block:first-of-type { border-top: none; }
 
     <!-- Social links -->
     <section class="block social reveal" id="social">
-      <div class="sec-head"><h2>Social links</h2></div>
+      <h2 class="sr-only">Social links</h2>
       <div class="social-row">
         <a class="sq-btn" href="https://github.com/mmw123456" target="_blank" rel="noopener" aria-label="GitHub">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.53-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.67.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"></path></svg>
@@ -577,7 +574,7 @@ section.block:first-of-type { border-top: none; }
 
     <!-- GitHub contributions -->
     <section class="block heatmap reveal" id="contributions">
-      <div class="sec-head"><h2>GitHub contributions</h2></div>
+      <h2 class="sr-only">GitHub contributions</h2>
       <img src="https://ghchart.rshah.org/52525b/mmw123456" alt="GitHub contributions graph for mmw123456" loading="lazy" onerror="this.closest('section').style.display='none'">
       <div class="heat-cap">
         <div>Fig. 2. <b>Source: GitHub.</b></div>
@@ -857,7 +854,7 @@ section.block:first-of-type { border-top: none; }
   /* ---------- 时钟 ---------- */
   var clockEl = document.getElementById('clock');
   function tickClock() {
-    clockEl.textContent = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+    clockEl.textContent = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
   }
   tickClock();
   setInterval(tickClock, 1000);
